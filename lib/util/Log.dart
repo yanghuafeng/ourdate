@@ -32,7 +32,7 @@ class Log {
     String time = DateUtil.formatDate(DateTime.now(),format: "yyyy-MM-dd HH:mm:ss.SSS");
     String content = time+" / "+log;
     print(content);
-    LogsStorage.instance.writeLogsToFile(content);
+   // LogsStorage.instance.writeLogsToFile(content);
   }
 }
 

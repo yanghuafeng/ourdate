@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:ourdate/page/MainPage.dart';
 import 'package:ourdate/routes/MainRouter.dart';
 import 'package:ourdate/routes/ServicesRouter.dart';
 import 'package:ourdate/util/Log.dart';
@@ -24,14 +26,9 @@ class App extends StatefulWidget{
 final EaseObserver observer = EaseObserver();
 class AppState extends State<App> with WidgetsBindingObserver{
 
-  Timer? timer;
-  StreamSubscription? sub;
-  StreamSubscription? subscription;
-
   @override
   void initState() {
     super.initState();
-    print("start app");
     WidgetsBinding.instance!.addObserver(this);
     //创建一个Router对象
     final router = FluroRouter();
@@ -81,7 +78,16 @@ class AppState extends State<App> with WidgetsBindingObserver{
       ),
       navigatorObservers: [observer],
       navigatorKey: Application.navigatorKey,
-      home: Container(),
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('zh', 'CH'),
+        const Locale('en', 'US'),
+      ],
+      locale: Locale('zh'),
+      home: MainPage(),
 
     );
   }

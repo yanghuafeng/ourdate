@@ -3,6 +3,8 @@
  */
 
 
+import 'package:flutter/material.dart';
+
 /**
  * Created by YHF at 16:46 on 2020-03-10.
  */
@@ -20,4 +22,17 @@ class ConstantPath {
 
   //酒水缓存文件地址
   static const String CachePath = "/wine/";
+}
+
+class SpKey{
+  static const String DATE = "date";
+
+}
+
+class BtnColor{
+  static double disable_color_opacity = 0.7;
+  static Color textColor = Colors.white;
+  static Color bgColorStart = Colors.pinkAccent;
+  static Color bgColorEnd = Colors.lightBlueAccent;
+
 }
