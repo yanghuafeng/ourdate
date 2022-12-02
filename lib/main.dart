@@ -75,6 +75,7 @@ class AppState extends State<App> with WidgetsBindingObserver{
       theme: ThemeData(
         primarySwatch:  Colors.grey,
         accentColor: Colors.grey, //listView滑动到边缘颜色
+      //  fontFamily: "common",
       ),
       navigatorObservers: [observer],
       navigatorKey: Application.navigatorKey,

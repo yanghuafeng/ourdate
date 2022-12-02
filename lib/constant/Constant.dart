@@ -26,6 +26,9 @@ class ConstantPath {
 
 class SpKey{
   static const String DATE = "date";
+  static const String diyKey = "DIYKEY";
+  static const String scheduleKey = "scheduleKey";
+
 
 }
 

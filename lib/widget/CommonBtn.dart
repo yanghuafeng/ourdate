@@ -97,12 +97,12 @@ class _CommonBtnState extends State<CommonBtn> with SingleTickerProviderStateMix
               )
           ),
           child: Container(
-            width: widget.width??Scr.px(240),
-            height: widget.height??Scr.px(100),
+            width: widget.width??Scr.px(200),
+            height: widget.height??Scr.px(60),
             alignment: Alignment.center,
             child: Text(widget.text,
               style: TextStyle(
-                  fontSize: widget.textSize??Scr.font(40),
+                  fontSize: widget.textSize??Scr.font(30),
                   color: getTextColor(),
                   decoration: TextDecoration.none
               ),

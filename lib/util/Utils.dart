@@ -1,3 +1,4 @@
+import 'package:common_utils/common_utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /**
@@ -6,7 +7,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class Utils{
 
-
+  static getDateString(DateTime dateTime){
+    String ret = DateUtil.formatDate(dateTime,format: "yyyy年MM月dd日");
+    return ret;
+  }
 
 
   static Future saveString(String key, String value)async{

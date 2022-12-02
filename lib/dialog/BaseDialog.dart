@@ -15,7 +15,6 @@ class BaseDialog {
       return Container(
         width: double.infinity,
         height: double.infinity,
-        color: Colors.green,
         child: GestureDetector(
           onTap: () {
             outsideClosible ? close() : () {};
