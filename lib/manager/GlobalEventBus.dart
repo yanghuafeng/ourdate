@@ -9,33 +9,6 @@ class GlobalEventBus{
 
 }
 
-class WineItemRefresh{
-  WineItemRefresh();
-}
-
-class TabBarRefresh{
-  TabBarRefresh();
-}
-
-class ConnectEvent{
-  String? roomIp;
-  ConnectEvent(this.roomIp);
-}
-
-class HomeHproseConnect{
-  HomeHproseConnect();
-}
-
-class OrderPageRefresh{
-  int mainTypeCheckOffset = 0;
-  OrderPageRefresh();
-}
-
-class CurrentPageRefresh{
-  String currentPage = "";
-  CurrentPageRefresh();
-}
-
-class MenuItemRefresh{
-  MenuItemRefresh();
+class MainPageRefresh{
+  MainPageRefresh();
 }

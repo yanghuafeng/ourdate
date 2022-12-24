@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ourdate/constant/Constant.dart';
 import 'package:ourdate/dialog/BaseDialog.dart';
 import 'package:ourdate/dialog/MenuDialog.dart';
+import 'package:ourdate/manager/GlobalEventBus.dart';
 import 'package:ourdate/manager/MemorialDay.dart';
 import 'package:ourdate/manager/Schedule.dart';
 import 'package:ourdate/manager/ScreenAdaptor.dart';
@@ -39,6 +40,11 @@ class _MainPageState extends State<MainPage> {
   void initState(){
     super.initState();
     init();
+    GlobalEventBus.event.on<MainPageRefresh>().listen((event) {
+      setState(() {
+
+      });
+    });
     now = DateTime.now();
   }
 
@@ -66,11 +72,7 @@ class _MainPageState extends State<MainPage> {
                   alignment: Alignment.bottomRight,
                   child: GestureDetector(
                     onTap: () {
-                      BaseDialog.showDialog(MenuDialog(
-                        callback: (){
-                          setState(() {});
-                        },
-                      ), context);
+                      BaseDialog.showDialog(MenuDialog(), context);
                     },
                     child: Container(
                       padding: EdgeInsets.only(right: Scr.px(20)),
@@ -92,7 +94,7 @@ class _MainPageState extends State<MainPage> {
             alignment: Alignment.center,
             child: Shimmer.fromColors(
               baseColor: Colors.transparent,
-              highlightColor: Colors.pink,
+              highlightColor: Colors.pink[200]!,
               period: Duration(seconds: 2),
               child: Text(Utils.getDateString(baseDay!),style: TextStyle(
                 fontSize: Scr.font(55),

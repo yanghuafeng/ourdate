@@ -47,10 +47,6 @@ class _MenuDialogState extends State<MenuDialog> {
         children: [
           GestureDetector(
             onTap: (){
-              // if(widget.callback!=null){
-              //   widget.callback!();
-              // }
-
               ChooseConfirmDialog dialog = new ChooseConfirmDialog(
                   confirmCallback: ()async{
                     await Utils.saveInt(SpKey.DATE, -1);
@@ -97,11 +93,7 @@ class _MenuDialogState extends State<MenuDialog> {
           SizedBox(height: Scr.px(30),),
           GestureDetector(
             onTap: (){
-              BaseDialog.showDialog(ScheduleDialog((){
-                if(widget.callback!=null){
-                  widget.callback!();
-                }
-              }), context);
+              BaseDialog.showDialog(ScheduleDialog(), context);
             },
             child: Container(
               height: Scr.px(120),

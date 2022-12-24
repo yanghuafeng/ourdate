@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ourdate/dialog/BaseDialog.dart';
+import 'package:ourdate/manager/GlobalEventBus.dart';
 import 'package:ourdate/manager/Schedule.dart';
 import 'package:ourdate/manager/ScreenAdaptor.dart';
 import 'package:ourdate/widget/CommonBtn.dart';
@@ -9,8 +10,8 @@ import 'package:ourdate/widget/CommonBtn.dart';
  */
  
 class ScheduleDialog extends StatefulWidget {
-  Function callback;
-  ScheduleDialog(this.callback,{Key? key}) : super(key: key);
+  Function? callback;
+  ScheduleDialog({Key? key,this.callback,}) : super(key: key);
 
   @override
   State<ScheduleDialog> createState() => _ScheduleDialogState();
@@ -46,7 +47,7 @@ class _ScheduleDialogState extends State<ScheduleDialog> {
 
             ScheduleManager.list.add(sch);
             ScheduleManager.refresh();
-            widget.callback();
+            GlobalEventBus.event.fire(new MainPageRefresh());
             BaseDialog.close();
           },),
           SizedBox(height: Scr.px(30),),

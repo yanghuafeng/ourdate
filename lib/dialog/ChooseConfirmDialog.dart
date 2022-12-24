@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ourdate/manager/ScreenAdaptor.dart';
+import 'package:ourdate/widget/CommonBtn.dart';
 
 import 'BaseDialog.dart';
 
@@ -13,12 +14,16 @@ class ChooseConfirmDialog extends StatelessWidget{
   Function? cancleCallback;
   Widget content;
   bool autoClose;
+  String? posTxt;
+  String? negTxt;
 
   ChooseConfirmDialog({
     required this.confirmCallback,
     required this.content,
     this.autoClose = true,
-    this.cancleCallback
+    this.cancleCallback,
+    this.negTxt,
+    this.posTxt
   });
   @override
   Widget build(BuildContext context) {
@@ -41,34 +46,20 @@ class ChooseConfirmDialog extends StatelessWidget{
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                InkWell(
+                CommonBtn(negTxt??"取消",
                   onTap: (){
                     cancleCallback==null?BaseDialog.close():cancleCallback!();
                   },
-                  child: Text("取消",
-                    style: TextStyle(
-                        fontSize: Scr.font(35),
-                        color: Color(0xfff64343),
-                        decoration: TextDecoration.none
-                    ),
-                  ),
                 ),
                 Padding(
                   padding:  EdgeInsets.only(left: Scr.px(50)),
-                  child: InkWell(
+                  child: CommonBtn(posTxt??"确定",
                     onTap: (){
                       confirmCallback();
                       if(autoClose) {
                         BaseDialog.close();
                       }
-                    },
-                    child: Text("确定",
-                      style: TextStyle(
-                          fontSize: Scr.font(35),
-                          color: Colors.green,
-                          decoration: TextDecoration.none
-                      ),
-                    ),
+                    }
                   ),
                 )
               ],

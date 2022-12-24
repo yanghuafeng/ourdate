@@ -104,11 +104,11 @@ class _ImageBtnState extends State<ImageBtn> with SingleTickerProviderStateMixin
   List<Color> getColors() {
     if(widget.disable){
       return [
-        BtnColor.bgColorStart.withOpacity(BtnColor.disable_color_opacity),
-        BtnColor.bgColorEnd.withOpacity(BtnColor.disable_color_opacity)
+        BtnColor.contentColorStart.withOpacity(BtnColor.disable_color_opacity),
+        BtnColor.contentColorEnd.withOpacity(BtnColor.disable_color_opacity)
       ];
     }
-    return [BtnColor.bgColorStart, BtnColor.bgColorEnd];
+    return [BtnColor.contentColorStart, BtnColor.contentColorEnd];
   }
 }
 

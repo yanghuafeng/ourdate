@@ -38,4 +38,7 @@ class BtnColor{
   static Color bgColorStart = Colors.pinkAccent;
   static Color bgColorEnd = Colors.lightBlueAccent;
 
+  static Color contentColorStart = Colors.white;
+  static Color contentColorEnd = Colors.white.withOpacity(0.8);
+
 }
