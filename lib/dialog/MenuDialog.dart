@@ -36,7 +36,7 @@ class _MenuDialogState extends State<MenuDialog> {
         borderRadius: BorderRadius.all(Radius.circular(Scr.px(10))),
         boxShadow: [
           BoxShadow(
-              color: Colors.white.withOpacity(0.8),
+              color: Colors.white,
               blurRadius: Scr.px(10),
               spreadRadius: Scr.px(5),
           )
@@ -61,6 +61,8 @@ class _MenuDialogState extends State<MenuDialog> {
             },
             child: Container(
               height: Scr.px(120),
+              width: double.infinity,
+              color: Colors.transparent,
               alignment: Alignment.centerLeft,
               child: Row(children: [
                 Image.asset(ImageUtils.getImagePath("edit"),width: Scr.px(60),height: Scr.px(60),),
@@ -71,6 +73,10 @@ class _MenuDialogState extends State<MenuDialog> {
                 ),)
               ],),
             ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(Scr.px(10)),
+            child: Container(height: Scr.px(1),width: double.infinity,color: Colors.black,),
           ),
           // SizedBox(height: Scr.px(30),),
           // GestureDetector(
@@ -90,13 +96,14 @@ class _MenuDialogState extends State<MenuDialog> {
           //     ],),
           //   ),
           // ),
-          SizedBox(height: Scr.px(30),),
           GestureDetector(
             onTap: (){
               BaseDialog.showDialog(ScheduleDialog(), context);
             },
             child: Container(
               height: Scr.px(120),
+              width: double.infinity,
+              color: Colors.transparent,
               alignment: Alignment.centerLeft,
               child: Row(children: [
                 Image.asset(ImageUtils.getImagePath("add"),width: Scr.px(60),height: Scr.px(60),),

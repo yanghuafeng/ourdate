@@ -28,9 +28,20 @@ class ChooseConfirmDialog extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: Scr.screenWidth*0.8,
-      height: Scr.screenHeight*0.3,
-      color: Colors.white.withOpacity(0.6),
+      width: Scr.screenWidth*0.7,
+      height: Scr.screenHeight*0.2,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color:Colors.white,width: Scr.px(2)),
+          borderRadius: BorderRadius.all(Radius.circular(Scr.px(10))),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.white,
+              blurRadius: Scr.px(10),
+              spreadRadius: Scr.px(5),
+            )
+          ]
+      ),
       child: Stack(
         children: <Widget>[
           Align(
@@ -43,24 +54,22 @@ class ChooseConfirmDialog extends StatelessWidget{
           Align(
             alignment: Alignment(0.8,0.75),
             child: Row(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 CommonBtn(negTxt??"取消",
+                  textColor: Colors.red,
                   onTap: (){
                     cancleCallback==null?BaseDialog.close():cancleCallback!();
                   },
                 ),
-                Padding(
-                  padding:  EdgeInsets.only(left: Scr.px(50)),
-                  child: CommonBtn(posTxt??"确定",
-                    onTap: (){
-                      confirmCallback();
-                      if(autoClose) {
-                        BaseDialog.close();
-                      }
+                CommonBtn(posTxt??"确定",
+                  onTap: (){
+                    confirmCallback();
+                    if(autoClose) {
+                      BaseDialog.close();
                     }
-                  ),
+                  }
                 )
               ],
             ),

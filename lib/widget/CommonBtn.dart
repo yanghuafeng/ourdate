@@ -10,9 +10,8 @@ class CommonBtn extends StatefulWidget {
   Function? onLongPress;
   bool scale;
   Color? textColor;
+  Color? borderColor;
   double? textSize;
-  double? borderRadius;
-  BoxBorder? border;
   bool disable;
 
   CommonBtn(this.text,{Key? key,
@@ -22,9 +21,8 @@ class CommonBtn extends StatefulWidget {
     this.onTap,
     this.onLongPress,
     this.textColor,
+    this.borderColor,
     this.textSize,
-    this.borderRadius,
-    this.border,
     this.disable = false,
   }) : super(key: key);
 
@@ -88,22 +86,18 @@ class _CommonBtnState extends State<CommonBtn> with SingleTickerProviderStateMix
         scale: _animation.value,
         child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius??Scr.px(10))),
-              border: widget.border,
-              gradient: LinearGradient(
-                begin: hl?Alignment.centerLeft:Alignment.centerRight,
-                end: hl?Alignment.centerRight:Alignment.centerLeft,
-                colors: getColors(),
-              )
+              borderRadius: BorderRadius.all(Radius.circular(Scr.px(5))),
+              border: Border.all(width: Scr.px(2),color: widget.borderColor??Colors.black),
+              color: hl?Colors.grey[300]:Colors.white
           ),
           child: Container(
             width: widget.width??Scr.px(200),
-            height: widget.height??Scr.px(60),
+            height: widget.height??Scr.px(65),
             alignment: Alignment.center,
             child: Text(widget.text,
               style: TextStyle(
                   fontSize: widget.textSize??Scr.font(30),
-                  color: getTextColor(),
+                  color: widget.textColor??Colors.black,
                   decoration: TextDecoration.none
               ),
             ),
@@ -113,24 +107,5 @@ class _CommonBtnState extends State<CommonBtn> with SingleTickerProviderStateMix
     );
   }
 
-  getTextColor(){
-    if(widget.textColor==null){
-      return widget.disable? Colors.white.withOpacity(BtnColor.disable_color_opacity)
-          :Colors.white;
-    }else{
-      return widget.disable? widget.textColor!.withOpacity(BtnColor.disable_color_opacity)
-          :widget.textColor!;
-    }
-  }
-
-  List<Color> getColors() {
-    if(widget.disable){
-      return [
-        BtnColor.bgColorStart.withOpacity(BtnColor.disable_color_opacity),
-        BtnColor.bgColorEnd.withOpacity(BtnColor.disable_color_opacity)
-      ];
-    }
-    return [BtnColor.bgColorStart, BtnColor.bgColorEnd];
-  }
 }
 

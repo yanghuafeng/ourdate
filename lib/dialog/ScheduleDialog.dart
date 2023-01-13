@@ -26,6 +26,18 @@ class _ScheduleDialogState extends State<ScheduleDialog> {
       width: Scr.screenWidth*0.8,
       height: Scr.screenWidth*0.6,
       alignment: Alignment.center,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color:Colors.white,width: Scr.px(2)),
+          borderRadius: BorderRadius.all(Radius.circular(Scr.px(10))),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.white,
+              blurRadius: Scr.px(10),
+              spreadRadius: Scr.px(5),
+            )
+          ]
+      ),
       padding: EdgeInsets.all(Scr.px(30)),
       child: Column(
         children: [
@@ -33,7 +45,10 @@ class _ScheduleDialogState extends State<ScheduleDialog> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("描述："),
+                Text("描述：",style: TextStyle(
+                  color: Colors.black,
+                  fontSize: Scr.font(30)
+                ),),
                 getEditText(),
               ],
             ),
@@ -67,7 +82,7 @@ class _ScheduleDialogState extends State<ScheduleDialog> {
          // counterText: "",
           border: OutlineInputBorder(borderSide: BorderSide.none),),
         controller: controller,
-        style: TextStyle(fontSize: Scr.font(26), color: Colors.black,
+        style: TextStyle(fontSize: Scr.font(30), color: Colors.black,
             decoration: TextDecoration.none),
         cursorColor: Colors.black,
 

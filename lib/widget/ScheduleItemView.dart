@@ -34,7 +34,7 @@ class _ScheduleItemViewState extends State<ScheduleItemView> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onLongPress: () {
+      onTap: () {
         ChooseConfirmDialog dialog = new ChooseConfirmDialog(
             confirmCallback: () {
               ScheduleManager.list.forEach((element) {
@@ -50,7 +50,7 @@ class _ScheduleItemViewState extends State<ScheduleItemView> {
             negTxt: "取消",
             content: Text(
               schedule.describe ?? "",
-              style: TextStyle(fontSize: Scr.font(30), color: Colors.red),
+              style: TextStyle(fontSize: Scr.font(40), color: Colors.black),
             ));
 
         BaseDialog.showDialog(dialog, context);
@@ -60,7 +60,11 @@ class _ScheduleItemViewState extends State<ScheduleItemView> {
         width: Scr.screenWidth,
         decoration: BoxDecoration(
             border: Border(bottom: BorderSide(width: Scr.px(1),color: Colors.white)),
-          color: schedule.done?Colors.pink[100] :Colors.transparent
+          boxShadow: [BoxShadow(
+            color: schedule.done?Colors.blue.withOpacity(0.3):Colors.transparent,
+            blurRadius: Scr.px(10),
+            spreadRadius: Scr.px(3),
+          )]
         ),
         padding: EdgeInsets.all(Scr.px(10)),
         alignment: Alignment.centerLeft,
@@ -73,7 +77,7 @@ class _ScheduleItemViewState extends State<ScheduleItemView> {
             Visibility(
                 visible: schedule.done, 
                 child: Image.asset(ImageUtils.getImagePath("complete"),
-                  width: Scr.px(50),height: Scr.px(50),color: Colors.pink[300],)
+                  width: Scr.px(55),height: Scr.px(55),color: Colors.yellow,)
             ),
             Spacer(),
             ImageBtn("delete",width: Scr.px(50),height: Scr.px(50),onTap: (){
@@ -88,7 +92,7 @@ class _ScheduleItemViewState extends State<ScheduleItemView> {
                   negTxt: "取消",
                   content: Text(
                     schedule.describe ?? "",
-                    style: TextStyle(fontSize: Scr.font(30), color: Colors.red),
+                    style: TextStyle(fontSize: Scr.font(40), color: Colors.black),
                   ));
 
               BaseDialog.showDialog(dialog, context);

@@ -43,7 +43,7 @@ class _DstDayItemViewState extends State<DstDayItemView> {
   }
 
   getDescribeString(){
-    String ret = "距离";
+    String ret = "距";
     if(dstDay.loop){
       ret=ret + "第${dstDay.num}个"+dstDay.describe!+"还有${dstDay.dstDay}天";
     }else{

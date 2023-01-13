@@ -89,23 +89,33 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           Container(
-            height: Scr.px(180),
+            height: Scr.px(150),
             width: Scr.screenWidth,
             alignment: Alignment.center,
             child: Shimmer.fromColors(
               baseColor: Colors.transparent,
-              highlightColor: Colors.pink[200]!,
+              highlightColor: Colors.white,
               period: Duration(seconds: 2),
-              child: Text(Utils.getDateString(baseDay!),style: TextStyle(
-                fontSize: Scr.font(55),
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
-                fontFamily: "title"
+              child: Text.rich(TextSpan(
+                children: [
+                  TextSpan(text: "距 ",style: TextStyle(
+                      fontSize: Scr.font(40),
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "title",
+                  )),
+                  TextSpan(text: Utils.getDateString(baseDay!),style: TextStyle(
+                      fontSize: Scr.font(55),
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "title"
+                  ),),
+                ]
               ),),
             ),
           ),
           Container(
-            height: Scr.px(120),width: Scr.screenWidth,
+            height: Scr.px(60),width: Scr.screenWidth,
             alignment: Alignment.center,
             child: GestureDetector(
               onTap: (){
@@ -124,7 +134,7 @@ class _MainPageState extends State<MainPage> {
           ),
           Container(
               padding: EdgeInsets.all(Scr.px(30)),
-              height: Scr.px(500),
+              height: Scr.px(520),
               width: Scr.screenWidth,
               child: dstView()
           ),
@@ -141,6 +151,7 @@ class _MainPageState extends State<MainPage> {
 
   dstView(){
     return ListView.builder(
+        padding: EdgeInsets.all(0),
         itemCount: min(dstList.length,3),
         itemBuilder:(BuildContext context,int index){
           return DstDayItemView(dstList[index],index);
@@ -148,6 +159,7 @@ class _MainPageState extends State<MainPage> {
   }
   scheduleView(){
     return ListView.builder(
+        padding: EdgeInsets.all(0),
         itemCount: ScheduleManager.list.length,
         itemBuilder:(BuildContext context,int index){
           return ScheduleItemView(ScheduleManager.list[index],index);
@@ -216,7 +228,7 @@ class _MainPageState extends State<MainPage> {
       }
     }
 
-    return "在一起"+ret;
+    return "已"+ret;
   }
 
   initDstDay()async{
