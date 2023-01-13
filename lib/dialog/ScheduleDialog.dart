@@ -47,7 +47,7 @@ class _ScheduleDialogState extends State<ScheduleDialog> {
               children: [
                 Text("描述：",style: TextStyle(
                   color: Colors.black,
-                  fontSize: Scr.font(30)
+                  fontSize: Scr.font(40)
                 ),),
                 getEditText(),
               ],
@@ -73,19 +73,19 @@ class _ScheduleDialogState extends State<ScheduleDialog> {
 
   getEditText(){
     return Container(
-      width: Scr.px(500),
-      height: Scr.px(500),
+      width: Scr.px(600),
+      height: Scr.px(800),
       child: TextField(
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(Scr.px(0)),
+          contentPadding: EdgeInsets.all(Scr.px(5)),
           filled: true,
          // counterText: "",
           border: OutlineInputBorder(borderSide: BorderSide.none),),
         controller: controller,
-        style: TextStyle(fontSize: Scr.font(30), color: Colors.black,
+        style: TextStyle(fontSize: Scr.font(40), color: Colors.black,
             decoration: TextDecoration.none),
         cursorColor: Colors.black,
-
+        maxLines: 8,
       ),
     );
   }

@@ -53,7 +53,7 @@ class _MenuDialogState extends State<MenuDialog> {
                     exit(0);
                   },
                   content: Text("确认需要重新设置日期吗（需要重启应用）",style: TextStyle(
-                      fontSize:Scr.font(30),
+                      fontSize:Scr.font(40),
                       color: Colors.black
                   ),)
               );

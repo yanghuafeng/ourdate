@@ -78,8 +78,8 @@ class _MainPageState extends State<MainPage> {
                       padding: EdgeInsets.only(right: Scr.px(20)),
                       child: Image.asset(ImageUtils.getImagePath("menu"),
                         color: Colors.white,
-                        width: Scr.px(50),
-                        height: Scr.px(50),
+                        width: Scr.px(60),
+                        height: Scr.px(60),
                       ),
                     ),
 

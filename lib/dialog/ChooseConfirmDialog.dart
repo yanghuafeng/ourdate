@@ -28,8 +28,8 @@ class ChooseConfirmDialog extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: Scr.screenWidth*0.7,
-      height: Scr.screenHeight*0.2,
+      width: Scr.screenWidth*0.8,
+      height: Scr.screenHeight*0.25,
       decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(color:Colors.white,width: Scr.px(2)),
